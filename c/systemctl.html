@@ -9,7 +9,7 @@
     <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,systemctl,系统服务管理器指令">
     <title>systemctl 命令，Linux systemctl 命令详解：系统服务管理器指令 -  Linux 命令搜索引擎</title>
     <link rel="shortcut icon" href="../img/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="../css/index.css?v=1676278060009">
+    <link rel="stylesheet" type="text/css" href="../css/index.css?v=1719471078460">
     <script src="../js/dark-mode.min.js"></script>
     <script type="module" src="../js/github-corners.js"></script>
 </head>
@@ -46,7 +46,25 @@
 </span>
 
 
-<script>const __TEMPLATE__ = document.createElement('template');
+<dark-mode style="position: fixed; top: 8px; left: 10px; z-index: 999;;display: none;" dark="Dark" light="Light"></dark-mode><script>const t=document;const e="_dark_mode_theme_";const s="permanent";const o="colorschemechange";const i="permanentcolorscheme";const h="light";const r="dark";const n=(t,e,s=e)=>{Object.defineProperty(t,s,{enumerable:true,get(){const t=this.getAttribute(e);return t===null?"":t},set(t){this.setAttribute(e,t)}})};const c=(t,e,s=e)=>{Object.defineProperty(t,s,{enumerable:true,get(){return this.hasAttribute(e)},set(t){if(t){this.setAttribute(e,"")}else{this.removeAttribute(e)}}})};class a extends HTMLElement{static get observedAttributes(){return["mode",h,r,s]}LOCAL_NANE=e;constructor(){super();this.t()}connectedCallback(){n(this,"mode");n(this,r);n(this,h);c(this,s);const a=localStorage.getItem(e);if(a&&[h,r].includes(a)){this.mode=a;this.permanent=true}if(this.permanent&&!a){localStorage.setItem(e,this.mode)}const l=[h,r].includes(a);if(this.permanent&&a){this.o()}else{if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches){this.mode=r;this.o()}if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)").matches){this.mode=h;this.o()}}if(!this.permanent&&!l){window.matchMedia("(prefers-color-scheme: light)").onchange=t=>{this.mode=t.matches?h:r;this.o()};window.matchMedia("(prefers-color-scheme: dark)").onchange=t=>{this.mode=t.matches?r:h;this.o()}}const d=new MutationObserver(((s,h)=>{this.mode=t.documentElement.dataset.colorMode;if(this.permanent&&l){localStorage.setItem(e,this.mode);this.i(i,{permanent:this.permanent})}this.h();this.i(o,{colorScheme:this.mode})}));d.observe(t.documentElement,{attributes:true});this.i(o,{colorScheme:this.mode});this.h()}attributeChangedCallback(t,s,o){if(t==="mode"&&s!==o&&[h,r].includes(o)){const t=localStorage.getItem(e);if(this.mode===t){this.mode=o;this.h();this.o()}else if(this.mode&&this.mode!==t){this.h();this.o()}}else if((t===h||t===r)&&s!==o){this.h()}if(t==="permanent"&&typeof this.permanent==="boolean"){this.permanent?localStorage.setItem(e,this.mode):localStorage.removeItem(e)}}o(){t.documentElement.setAttribute("data-color-mode",this.mode)}h(){this.icon.textContent=this.mode===h?"🌒":"🌞";this.text.textContent=this.mode===h?this.getAttribute(r):this.getAttribute(h)}t(){var s=this.attachShadow({mode:"open"});this.label=t.createElement("span");this.label.setAttribute("class","wrapper");this.label.onclick=()=>{this.mode=this.mode===h?r:h;if(this.permanent){localStorage.setItem(e,this.mode)}this.o();this.h()};s.appendChild(this.label);this.icon=t.createElement("span");this.label.appendChild(this.icon);this.text=t.createElement("span");this.label.appendChild(this.text);const o=`
+[data-color-mode*='dark'], [data-color-mode*='dark'] body {
+  color-scheme: dark;
+  --color-theme-bg: #0d1117;
+  --color-theme-text: #c9d1d9;
+  background-color: var(--color-theme-bg);
+  color: var(--color-theme-text);
+}
+
+[data-color-mode*='light'], [data-color-mode*='light'] body {
+  color-scheme: light;
+  --color-theme-bg: #fff;
+  --color-theme-text: #24292f;
+  background-color: var(--color-theme-bg);
+  color: var(--color-theme-text);
+}`;const i="_dark_mode_style_";const n=t.getElementById(i);if(!n){var c=t.createElement("style");c.id=i;c.textContent=o;t.head.appendChild(c)}var a=t.createElement("style");a.textContent=`
+    .wrapper { cursor: pointer; user-select: none; position: relative; }
+    .wrapper > span + span { margin-left: .4rem; }
+    `;s.appendChild(a)}i(t,e){this.dispatchEvent(new CustomEvent(t,{bubbles:true,composed:true,detail:e}))}}customElements.define("dark-mode",a);</script><script>const __TEMPLATE__ = document.createElement('template');
 __TEMPLATE__.innerHTML = `
 <style>
 
@@ -112,72 +130,76 @@ class MarkdownStyle extends HTMLElement {
         }
     }
 }
-customElements.define('markdown-style', MarkdownStyle);</script><markdown-style style="max-width: 960px; margin: 0 auto 60px auto; padding: 8px" class="markdown-style">
+customElements.define('markdown-style', MarkdownStyle);</script><markdown-style style="max-width: 960px; margin: 0 auto 60px auto; padding: 8px;" class="markdown-style">
 <h1 id="systemctl"><a class="anchor" aria-hidden="true" tabindex="-1" href="#systemctl"><span class="octicon octicon-link"></span></a>systemctl</h1>
 <p>系统服务管理器指令</p>
 <h2 id="补充说明"><a class="anchor" aria-hidden="true" tabindex="-1" href="#补充说明"><span class="octicon octicon-link"></span></a>补充说明</h2>
 <p><strong>systemctl命令</strong> 是系统服务管理器指令，它实际上将 service 和 chkconfig 这两个命令组合到一起。</p>
-
-  
-    
-      
-      
-      
-    
-  
-  
-    
-      
-      
-      
-    
-    
-      
-      
-      
-    
-    
-      
-      
-      
-    
-    
-      
-      
-      
-    
-    
-      
-      
-      
-    
-    
-      
-      
-      
-    
-    
-      
-      
-      
-    
-    
-      
-      
-      
-    
-  
-<table><thead><tr><th>任务</th><th>旧指令</th><th>新指令</th></tr></thead><tbody><tr><td>使某服务自动启动</td><td>chkconfig --level 3 httpd on</td><td>systemctl enable httpd.service</td></tr><tr><td>使某服务不自动启动</td><td>chkconfig --level 3 httpd off</td><td>systemctl disable httpd.service</td></tr><tr><td>检查服务状态</td><td>service httpd status</td><td>systemctl status httpd.service （服务详细信息） systemctl is-active httpd.service （仅显示是否 Active)</td></tr><tr><td>显示所有已启动的服务</td><td>chkconfig --list</td><td>systemctl list-units --type=service</td></tr><tr><td>启动服务</td><td>service httpd start</td><td>systemctl start httpd.service</td></tr><tr><td>停止服务</td><td>service httpd stop</td><td>systemctl stop httpd.service</td></tr><tr><td>重启服务</td><td>service httpd restart</td><td>systemctl restart httpd.service</td></tr><tr><td>重载服务</td><td>service httpd reload</td><td>systemctl reload httpd.service</td></tr></tbody></table>
+<table>
+  <thead>
+    <tr>
+      <th>任务</th>
+      <th>旧指令</th>
+      <th>新指令</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>使某服务自动启动</td>
+      <td>chkconfig --level 3 httpd on</td>
+      <td>systemctl enable httpd.service</td>
+    </tr>
+    <tr>
+      <td>使某服务不自动启动</td>
+      <td>chkconfig --level 3 httpd off</td>
+      <td>systemctl disable httpd.service</td>
+    </tr>
+    <tr>
+      <td>检查服务状态</td>
+      <td>service httpd status</td>
+      <td>systemctl status httpd.service （服务详细信息） systemctl is-active httpd.service （仅显示是否 Active)</td>
+    </tr>
+    <tr>
+      <td>显示所有已启动的服务</td>
+      <td>chkconfig --list</td>
+      <td>systemctl list-units --type=service</td>
+    </tr>
+    <tr>
+      <td>启动服务</td>
+      <td>service httpd start</td>
+      <td>systemctl start httpd.service</td>
+    </tr>
+    <tr>
+      <td>停止服务</td>
+      <td>service httpd stop</td>
+      <td>systemctl stop httpd.service</td>
+    </tr>
+    <tr>
+      <td>重启服务</td>
+      <td>service httpd restart</td>
+      <td>systemctl restart httpd.service</td>
+    </tr>
+    <tr>
+      <td>重载服务</td>
+      <td>service httpd reload</td>
+      <td>systemctl reload httpd.service</td>
+    </tr>
+  </tbody>
+</table>
 <h3 id="实例"><a class="anchor" aria-hidden="true" tabindex="-1" href="#实例"><span class="octicon octicon-link"></span></a>实例</h3>
 <pre class="language-shell"><code class="language-shell code-highlight"><span class="code-line line-number" line="1">systemctl start nfs-server.service <span class="token builtin class-name">.</span> <span class="token comment"># 启动nfs服务</span>
 </span><span class="code-line line-number" line="2">systemctl <span class="token builtin class-name">enable</span> nfs-server.service <span class="token comment"># 设置开机自启动</span>
-</span><span class="code-line line-number" line="3">systemctl disable nfs-server.service <span class="token comment"># 停止开机自启动</span>
-</span><span class="code-line line-number" line="4">systemctl status nfs-server.service <span class="token comment"># 查看服务当前状态</span>
-</span><span class="code-line line-number" line="5">systemctl restart nfs-server.service <span class="token comment"># 重新启动某服务</span>
-</span><span class="code-line line-number" line="6">systemctl list-units <span class="token parameter variable">--type</span><span class="token operator">=</span>service <span class="token comment"># 查看所有已启动的服务</span>
+</span><span class="code-line line-number" line="3">systemctl <span class="token builtin class-name">enable</span> nfs-server.service <span class="token parameter variable">--now</span> <span class="token comment"># 设置开机自启动，并立刻启动</span>
+</span><span class="code-line line-number" line="4">systemctl disable nfs-server.service <span class="token comment"># 停止开机自启动</span>
+</span><span class="code-line line-number" line="5">systemctl disable nfs-server.service <span class="token parameter variable">--now</span> <span class="token comment"># 停止开机自启动，并立刻停止</span>
+</span><span class="code-line line-number" line="6">systemctl status nfs-server.service <span class="token comment"># 查看服务当前状态</span>
+</span><span class="code-line line-number" line="7">systemctl restart nfs-server.service <span class="token comment"># 重新启动某服务</span>
+</span><span class="code-line line-number" line="8">systemctl list-units <span class="token parameter variable">--type</span><span class="token operator">=</span>service <span class="token comment"># 查看所有已启动的服务</span>
 </span></code><div onclick="copied(this)" data-code="systemctl start nfs-server.service . # 启动nfs服务
 systemctl enable nfs-server.service # 设置开机自启动
+systemctl enable nfs-server.service --now # 设置开机自启动，并立刻启动
 systemctl disable nfs-server.service # 停止开机自启动
+systemctl disable nfs-server.service --now # 停止开机自启动，并立刻停止
 systemctl status nfs-server.service # 查看服务当前状态
 systemctl restart nfs-server.service # 重新启动某服务
 systemctl list-units --type=service # 查看所有已启动的服务
@@ -259,16 +281,17 @@ function copied(target, str) {
   <a href="https://github.com/roachsinai/krunner-linuxcommands" target="_blank">Krunner</a> |
   <a href="http://jaywcjlove.gitee.io/linux-command/" target="_blank">开源中国Web版</a>
   <br />
+  <a href="https://jaywcjlove.github.io/#/sponsor" target="_blank">打赏捐赠</a> |
   <a href="https://github.com/jaywcjlove/linux-command" target="_blank">Github</a> |
   <a href="https://jaywcjlove.github.io/linux-command/" target="_blank">短地址：https://git.io/linux</a>
   <br />
   收藏本站请使用 Ctrl+D 或者Command+d
   <br /> 共搜集到
   <span id="commands_info">
-    587
+    607
   </span> 个Linux命令，超过 <a href="../contributors.html">50+</a> 贡献者
 </div>
-<script type="text/javascript" src="../js/dt.js?v=1676278060009"></script>
-<script type="text/javascript" src="../js/index.js?v=1676278060009"></script>
+<script type="text/javascript" src="../js/dt.js?v=1719471078460"></script>
+<script type="text/javascript" src="../js/index.js?v=1719471078460"></script>
 </body>
 </html>
